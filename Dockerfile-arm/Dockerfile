@@ -1,5 +1,6 @@
-FROM nvidia/cuda:7.5-cudnn4-devel
-MAINTAINER Tim O'Shea <tim.oshea753@gmail.com>
+#ARM/TX2 Architecture Docker Container
+
+From flacjacket/cuda-tx2
 
 # set up environment
 ENV DEBIAN_FRONTEND noninteractive
@@ -37,20 +38,8 @@ RUN pip install --upgrade --ignore-installed git+https://github.com/fchollet/ker
 RUN pip install --upgrade seaborn tqdm
 RUN pip install --upgrade pandas
 
-# install swig
-# RUN apt-get install -y g++
-# RUN apt-get install -y libpcre3 libpcre3-dev
-# RUN wget "http://prdownloads.sourceforge.net/swig/swig-3.0.12.tar.gz"
-# RUN chmod 777 swig-3.0.12.tar.gz
-# RUN tar -xzvf swig-3.0.12.tar.gz
-# RUN cd swig-3.0.12 && ./configure --prefix="$PWD/swigtool" && make && make install
-# RUN echo "export SWIG_PATH=$PWD/swigtool/bin" >> /etc/profile
-# RUN echo "export PATH=$SWIG_PATH:$PATH" >> /etc/profile
-# RUN /bin/bash -c "source /etc/profile"
-
-
 # set up gnuradio and related tools
-RUN apt-get install -y autotools-dev autoconf sudo wireshark gdb swig
+RUN apt-get install -y autotools-dev autoconf sudo wireshark gdb
 RUN pip install --upgrade git+https://github.com/gnuradio/pybombs.git
 RUN mkdir /gr/
 RUN cd /gr/ && pybombs prefix init .
@@ -84,9 +73,8 @@ RUN pip install gym[atari] pachi_py
 RUN mkdir /root/src/notebooks/
 
 # copy in some helpful files / set up env on login
+COPY .vimrc /root/
 RUN echo "source /gr/setup_env.sh" >> /root/.bashrc
-COPY ../ ./rfclassification
-RUN export PATH=$PATH:/gr/bin
 
 
 
