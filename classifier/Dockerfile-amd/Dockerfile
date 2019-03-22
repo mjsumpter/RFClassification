@@ -84,8 +84,9 @@ RUN pip install gym[atari] pachi_py
 RUN mkdir /root/src/notebooks/
 
 # copy in some helpful files / set up env on login
-RUN echo "source /gr/setup_env.sh" >> /root/.bashrck
+RUN echo "source /gr/setup_env.sh" >> /root/.bashrc
 COPY ../ ./rfclassification
+RUN export PATH=$PATH:/gr/bin
 
 
 
