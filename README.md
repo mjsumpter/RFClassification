@@ -27,7 +27,7 @@ where start and end indicate the ends of the range you would like to scan on, in
 ### DB/DB Scraping
 The initial foundations for a database have been sourced from [SigID Wiki](https://www.sigidwiki.com/wiki/Signal_Identification_Guide)
 
-The python script for scraping the database, as well as the database itself can be found in db/
+The python script for scraping the database, as well as the database itself can be found in sigid_db/
 
 ### Classification
 The classifier source files can be found in classifier/
