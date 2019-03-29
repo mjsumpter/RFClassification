@@ -10,8 +10,11 @@ Generated dataset can be found at [Deepsig](https://www.deepsig.io/datasets)
 
 ### Dependencies
 The RF scanning environment and scripts rely on:
-*GNURadio
-*[RTLSDR Scanner](https://eartoearoak.com/software/rtlsdr-scanner)
+
+
+1.GNURadio
+
+2.[RTLSDR Scanner](https://eartoearoak.com/software/rtlsdr-scanner)
 
 The SDR we used for testing was an RTL-SDR
 
